@@ -61,6 +61,7 @@ function gradeQuiz(candidateAnswers) {
   }
 
   grade = grade / questions.length * 100;
+  
   console.log(`>>> Overall Grade: ${grade}% (${grade / 20} of ${questions.length} responses correct) <<<`);
 
   if (grade >= 80) {
