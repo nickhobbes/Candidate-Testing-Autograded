@@ -47,17 +47,27 @@ function gradeQuiz(candidateAnswers) {
   }*/
 
   console.log(`Candidate Name: ${candidateName}`);
+  let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
 
   for (let i = 0; i < candidateAnswers.length; i++) {
     console.log(`${i + 1}) ${questions[i]}`);
     console.log(`Your Answer: ${candidateAnswers[i]}`);
     console.log(`Correct Answer: ${correctAnswers[i]}`);
     console.log();
+
+    if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
+      grade++;
+    }
   }
 
+  grade = grade / questions.length * 100;
+  console.log(`>>> Overall Grade: ${grade}% (${grade / 20} of ${questions.length} responses correct) <<<`);
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  if (grade >= 80) {
+    console.log(">>> Status: PASSED <<<");
+  } else {
+    console.log(">>> Status: FAILED <<<");
+  }
 
   return grade;
 }
